@@ -124,7 +124,7 @@
       
     </div>
       <!--Cena Entrada Portaria-->
-      <a-entity class="cena" id="cenaEntrada" visible="true" >
+      <a-entity class="cena" id="cenaEntrada" visible="false" >
 
         <a-sky
           src="#EntradaCol"
@@ -337,7 +337,7 @@
       </a-entity>
 
       <!--Cena Sala 2 -->
-      <a-entity class="cena" id="cenaSala2" visible="false">
+      <a-entity class="cena" id="cenaSala2" visible="true">
         <a-sky
           src="#Sala2"
           radius="30"
@@ -393,7 +393,8 @@
                 color="#FFF"
                 event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
                 event-set__mouseleave="scale: 1 1 1; color:#fff"
-                event-set__click1="_target: #TextBox1; _event:click; animation.property: material.opacity; animation.to: 0.8 "
+                event-set__click1="_target: #TextBox1; _event:click; animation.property: material.opacity; animation.to: 1 "
+                
               ></a-image>
             </a-entity>
 
@@ -401,7 +402,7 @@
               <a-image
               id="TextBox1"
                 src="#infoBoxPC"
-                width="2.5"
+                width="2.8"
                 height="2.5"
                 opacity="0"
                 event-set__clickBack1="_target: #TextBox1; _event:click; animation.property: material.opacity; animation.to: 0 "
@@ -419,7 +420,7 @@
               color="#FFF"
               event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
               event-set__mouseleave="scale: 1 1 1; color:#fff"
-              event-set__click="_target: #TextBox2; _event:click; animation.property: material.opacity; animation.to: 0.8 "
+              event-set__click="_target: #TextBox2; _event:click; animation.property: material.opacity; animation.to: 1 "
             ></a-image>
           </a-entity>
 
@@ -487,7 +488,7 @@
           </a-entity>
         
         <!--Ponto dos Info--> 
-        <a-entity id="infoBox" position="-6 3.2 3">
+        <a-entity id="infoBox" position="-6 1 2">
           <a-entity position="0 0 0" look-at="#cam">
             <a-image
               src="#point"
@@ -500,7 +501,7 @@
               ></a-image>
             </a-entity>
 
-            <a-entity position="0 -1.8 0" look-at="#cam">
+            <a-entity position="0 1.8 0" look-at="#cam">
               <a-image
               id="TextBox3"
                 src="#infoBoxFast"
@@ -530,8 +531,8 @@
               <a-image
               id="TextBox4"
                 src="#infoBoxHome"
-                width="2"
-                height="1.5"
+                width="2.8"
+                height="2.5"
                 opacity="0"
                 event-set__clickBack1="_target: #TextBox4; _event:click; animation.property: material.opacity; animation.to: 0 "
               ></a-image>
@@ -590,7 +591,7 @@
               proxy-event="event: click; to: #cam; as: fade"
             ></a-image>
             <a-text
-              text="width:  5;  value:  Meio da Sala; align: center "
+              text="width:  5;  value:  Sala; align: center "
               position="0 -0.5 0"
             ></a-text>
           </a-entity> 
@@ -622,7 +623,7 @@
         </a-entity>
 
         <!--Ponto dos Info--> 
-        <a-entity id="infoBox" position="3 0 6">
+        <a-entity id="infoBox" position="3 0 5">
           <a-entity position="0 0 0" look-at="#cam">
             <a-image
               src="#point"
@@ -648,7 +649,7 @@
         </a-entity>
 
         <!--Ponto dos Info--> 
-        <a-entity id="infoBox" position="-4 0 6">
+        <a-entity id="infoBox" position="-4 0 4">
           <a-entity position="0 0 0" look-at="#cam">
             <a-image
               src="#point"
