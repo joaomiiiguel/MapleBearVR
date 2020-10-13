@@ -65,7 +65,11 @@
         <img id="Parque2" src="assets\Parque_1.JPG" />
         <img id="Sala1Entrada" src="assets\Sala1_Entrada.JPG" />
         <img id="Sala1" src="assets\Sala1_Meio_2.JPG" />
+        <img id="Sala1Meio" src="assets\Sala1_Meio2.JPG" />
+        <img id="Sala1Final" src="assets\Sala1_TeatroV.JPG" />
         <img id="Sala2" src="assets\Sala2_Inicio.JPG" />
+        <img id="Sala2-Meio" src="assets\Sala2_Meio.JPG" />
+        <img id="Sala2-Final" src="assets\Sala2_Final.JPG" />
         <img id="EscCampo" src="assets\Escola_Campo.JPG" />
         <img id="QuadraCampo" src="assets\Quadra_Campo.JPG" />
         <img id="Quadra2" src="assets\Quadra.JPG" />
@@ -316,8 +320,8 @@
         </a-entity>
       </a-entity>
 
-      <!--Cena Sala 2-->
-      <a-entity class="cena" id="cenaSala2" visible="true">
+      <!--Cena Sala 2 -->
+      <a-entity class="cena" id="cenaSala2" visible="false">
         <a-sky
           src="#Sala2"
           radius="30"
@@ -343,21 +347,21 @@
             ></a-text>
           </a-entity> 
 
-          <!--Hall Entrada-->
-          <a-entity position="-5 -1 3" look-at="#cam">
+          <!--Meio da Sala-->
+          <a-entity position="-3 0 5" look-at="#cam">
             <a-image
               src="#marco"
               class="button"
               width="0.5"
               height="0.5"
               color="#FFF"
-              onclick="mudarCena('cenaHall')"
+              onclick="mudarCena('cenaSala2Meio')"
               event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
               event-set__mouseleave="scale: 1 1 1; color:#fff"
               proxy-event="event: click; to: #cam; as: fade"
             ></a-image>
             <a-text
-              text="width:  5;  value:  Hall de Entrada; align: center "
+              text="width:  5;  value:  Centro da Sala; align: center "
               position="0 -0.5 0"
             ></a-text>
           </a-entity>
@@ -494,7 +498,86 @@
 
         </a-entity>
       </a-entity>
-      
+
+      <a-entity class="cena" id="cenaSala2Meio" visible="false">
+        <a-sky
+          src="#Sala2-Meio"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Estacionamento-->
+          <a-entity position="0 0 -6" look-at="#cam">
+            <a-image
+              src="#marco"
+              class="button"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala2Final')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Final da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity> 
+
+          <!--Hall Entrada-->
+          <a-entity position="0 0 6" look-at="#cam">
+            <a-image
+              src="#marco"
+              class="button"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala2')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Inicio da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity>
+        
+        </a-entity>
+
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala2Final" visible="false">
+        <a-sky
+          src="#Sala2-Final"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Estacionamento-->
+          <a-entity position="3 0 -5" look-at="#cam">
+            <a-image
+              src="#marco"
+              class="button"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala2Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Meio da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity> 
+        
+        </a-entity>
+
+      </a-entity>
+
       <!--Cena Sala 1-->
       <a-entity class="cena" id="cenaSala1Entr" visible="false">
         <a-sky
@@ -503,7 +586,7 @@
           rotation="0 0 0"
         ></a-sky>
         <a-entity >
-          <!--Elevador-->
+          <!--Entrada da Sala-->
           <a-entity position="6 0 -4" look-at="#cam">
             <a-image
               src="#marco"
@@ -520,9 +603,103 @@
               position="0 -0.5 0"
             ></a-text>
           </a-entity>
+
+          <!--Meio Sala-->
+          <a-entity position="-6 0 0" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Meio da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity>
         
 
         </a-entity>
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala1Meio" visible="false">
+        <a-sky
+          src="#Sala1Meio"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Elevador-->
+          <a-entity position="-3 0 -4" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Entr')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Inicio da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity>
+
+          <!--Elevador-->
+          <a-entity position="-2 0 6" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Final')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Final da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity>
+        
+        </a-entity>
+
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala1Final" visible="true">
+        <a-sky
+          src="#Sala1Final"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Elevador-->
+          <a-entity position="5 0.5 0" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            <a-text
+              text="width:  5;  value:  Meio da Sala; align: center "
+              position="0 -0.5 0"
+            ></a-text>
+          </a-entity>
+        
+        </a-entity>
+        
       </a-entity>
 
       <!--Cena Campo da Escola-->
