@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <title>Colégio Maple Bear - Dilis</title>
@@ -58,6 +58,7 @@
     <a-scene  vr-mode-ui="enabled: false" renderer="antialias: true">
       <a-assets>
         <img id="logo" src="assets/logo.png">
+        <img id="logoCam" src="assets\MapleBear-Logo.png">
         <img id="marco" src="assets\marco.png" />
         <img id="point" src="assets\point.png" />
         <img id="infoBox" src="assets\Info_box.png" />
@@ -86,9 +87,14 @@
           look-controls
           cursor="rayOrigin: mouse"
           >
-          <!--animation__fade="property: position; to: 0 0 -8; dur: 300; startEvents: fade"
-              animation__fadeOut="property: position; to: 0 0 0; dur: 10; delay: 250; startEvents: fade"-->
         </a-camera>
+        <a-image 
+            position="0 -2 0"
+            rotation="-90 0 0"
+            src="#logoCam"
+            width="2"
+            height="2"
+          ></a-image>
       </a-entity>
 
       <div class="custom-img">
@@ -110,7 +116,7 @@
       
     </div>
       <!--Cena Entrada Portaria-->
-      <a-entity class="cena" id="cenaEntrada" visible="true" >
+      <a-entity class="cena" id="cenaEntrada" visible="false" >
 
         <a-sky
           src="#EntradaCol"
@@ -323,7 +329,7 @@
       </a-entity>
 
       <!--Cena Sala 2 -->
-      <a-entity class="cena" id="cenaSala2" visible="false">
+      <a-entity class="cena" id="cenaSala2" visible="true">
         <a-sky
           src="#Sala2"
           radius="30"
@@ -369,8 +375,9 @@
           </a-entity>
 
           <!--UI NAV-->
-        <!--Ponto para Aptos--> 
-            <a-entity position="6 0.5 4.7" look-at="#cam">
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="6 0.8 4.7">
+            <a-entity position="0 0 0" look-at="#cam">
               <a-image
                 src="#point"
                 width="0.5"
@@ -378,133 +385,49 @@
                 color="#FFF"
                 event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
                 event-set__mouseleave="scale: 1 1 1; color:#fff"
-                proxy-event="event: click; to: #cam; as: fade"
+                event-set__click1="_target: #TextBox1; _event:click; animation.property: material.opacity; animation.to: 0.8 "
               ></a-image>
             </a-entity>
 
-            <a-entity position="6 3 4.7" look-at="#cam">
+            <a-entity position="0 1.8 0" look-at="#cam">
               <a-image
+              id="TextBox1"
                 src="#infoBox"
                 width="2.5"
-                height="3.5"
-                opacity="0.5"
+                height="2.5"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox1; _event:click; animation.property: material.opacity; animation.to: 0 "
               ></a-image>
-              <a-entity position="0 1.5 0.1" text="value: COMPUTER CENTER; align: center; width: 3; color:#000" ></a-entity>
-              <a-entity position="0 0.6 0.1" 
-              text="value: As tecnologias digitais estão presentes também na nossa sala de aula, o professor se constitui um mediador, criandoatividades pedagógicas que desenvolvem a imaginação de forma divertida, proporcionando o contato com outraslinguagens e formas, trabalhando com jogos, livros digitais, plataformas interativas e estimulando a autonomia.; 
-              align: center; width: 2.5; color:#000; wrapCount:25" ></a-entity>
             </a-entity>
+        </a-entity>
 
-            <!--Lista de Aptos
-            <a-entity id="AptoText1" position="0 0 -1" scale="0.5 0.5 1"
-            text="value: Apartamento 1801; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" link="href: 1801.html"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-            <a-entity id="AptoText2" position="0 0 -1" scale="0.5 0.5 1"
-            text="value: Apartamento 1901; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" link="href: 1903.html"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-            <a-entity id="AptoText3" position="0 0 -1" scale="0.5 0.5 1"
-            text="value: Apartamento 1905; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1"material="color:#999" link="href: 1905.html"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-            <a-entity id="AptoText4" position="0 0 -1" scale="0.5 0.5 1"
-            text="value: Apartamento 2104; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1"material="color:#999" link="href: 2104.html"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity-->
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="-6 2.4 0.3">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click="_target: #TextBox2; _event:click; animation.property: material.opacity; animation.to: 0.8 "
+            ></a-image>
+          </a-entity>
 
+          <a-entity position="0 -1.8 0" look-at="#cam">
+            <a-image
+            id="TextBox2"
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0"
+              event-set__clickBack="_target: #TextBox2; _event:click; animation.property: material.opacity; animation.to: 0 "
+            ></a-image>
+          </a-entity>
+      </a-entity>
 
-            <!--Ponto para Area de Lazer 
-            <a-entity id="AptoText" position="1.2 0 0" scale="0.5 0.5 1"
-            text="value: Area de Lazer; align: center; width:5; color:#000"></a-entity>-->
-            <!--Plano de fundo do bt
-            <a-plane color="#EFEFEF" height="0.5" width="1"  position="1.2 0 0"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #EFEFEF"
-            event-set__click="_event: click; material.color: #B4B4B4"
-            event-set__positionLazer="_target:#LazerText1 ; _event: click; animation.property:position; animation.to:1.2 -0.375 0; animation.easing:easeInOutBack"
-            event-set__positionLazer2="_target:#LazerText2 ; _event: click; animation.property:position; animation.to:1.2 -0.63 0; animation.easing:easeInOutBack; animation.delay:50" 
-            event-set__positionLazer3="_target:#LazerText3 ; _event: click; animation.property:position; animation.to:1.2 -0.88 0; animation.easing:easeInOutBack; animation.delay:100" 
-            event-set__positionLazer4="_target:#LazerText4 ; _event: click; animation.property:position; animation.to:1.2 -1.13 0; animation.easing:easeInOutBack; animation.delay:150" 
-            event-set__positionLazer5="_target:#LazerText5 ; _event: click; animation.property:position; animation.to:1.2 -1.38 0; animation.easing:easeInOutBack; animation.delay:200" 
-            event-set__positionLazer6="_target:#LazerText6 ; _event: click; animation.property:position; animation.to:1.2 -1.63 0; animation.easing:easeInOutBack; animation.delay:250" 
-            event-set__positionLazer7="_target:#LazerText7 ; _event: click; animation.property:position; animation.to:1.2 -1.88 0; animation.easing:easeInOutBack; animation.delay:300" 
-            event-set__positionLazer8="_target:#LazerText8 ; _event: click; animation.property:position; animation.to:1.2 -2.13 0; animation.easing:easeInOutBack; animation.delay:350" 
-            event-set__positionLazer9="_target:#LazerText9 ; _event: click; animation.property:position; animation.to:1.2 -2.38 0; animation.easing:easeInOutBack; animation.delay:400" 
-            event-set__positionLazer10="_target:#LazerText10 ; _event: click; animation.property:position; animation.to:1.2 -2.63 0; animation.easing:easeInOutBack; animation.delay:450" 
-            ></a-plane>-->
-
-            <!--Lista de Lazer
-            <a-entity id="LazerText1" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Academia; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaAcademia')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText2" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Brinquedoteca; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaBrinquedoteca')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText3" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Churrasqueira; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaChurrasco')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText4" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Espaco Kids; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaKids')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText5" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Espaco Zen; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaZen')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText6" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Espaco Gourmet; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaGourmet')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText7" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Sala de Festas; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaFestas')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText8" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Sala de Jogos; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaJogos1')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>
-
-            <a-entity id="LazerText9" position="1.2 0 -0.1" scale="0.5 0.5 1"
-            text="value: Piscina; align: center; width:4; color:#000; zOffset:0.06"
-            geometry="primitive: box; width:2; height:0.5; depth:0.1" material="color:#999" onclick="mudarCena('cenaPiscina')"
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #999"
-            event-set__click="_event: click; material.color: #B4B4B4"></a-entity>-->
+        
         
 
         </a-entity>
@@ -555,6 +478,79 @@
             ></a-text>
           </a-entity>
         
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="-6 3.2 3">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 -1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.8"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="-6 1 -3.5">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.8"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="6 1 0">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.8"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+
         </a-entity>
 
       </a-entity>
@@ -585,6 +581,79 @@
             ></a-text>
           </a-entity> 
         
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="5 2 5">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.7"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="3 0 6">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.7"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox" position="-4 0 6">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+          </a-entity>
+
+          <a-entity position="0 1.8 0" look-at="#cam">
+            <a-image
+              src="#infoBox"
+              width="2.5"
+              height="2.5"
+              opacity="0.7"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+
+
         </a-entity>
 
       </a-entity>
