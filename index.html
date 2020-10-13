@@ -58,7 +58,9 @@
     <a-scene  vr-mode-ui="enabled: false" renderer="antialias: true">
       <a-assets>
         <img id="logo" src="assets/logo.png">
-        <img id="marco" src="https://cdn.glitch.com/07e6f369-c779-4206-a66d-caec139b3eb9%2Fpiscina_icon_B.png?v=1601656746275" />
+        <img id="marco" src="assets\marco.png" />
+        <img id="point" src="assets\point.png" />
+        <img id="infoBox" src="assets\Info_box.png" />
         <img id="EntradaCol" src="assets\Entrada.JPG" />
         <img id="HallEntrada" src="assets\AreaEntrada.JPG" />
         <img id="Parque" src="assets\Parque2.JPG" />
@@ -108,7 +110,7 @@
       
     </div>
       <!--Cena Entrada Portaria-->
-      <a-entity class="cena" id="cenaEntrada" visible="false" >
+      <a-entity class="cena" id="cenaEntrada" visible="true" >
 
         <a-sky
           src="#EntradaCol"
@@ -328,7 +330,7 @@
           rotation="0 0 0"
         ></a-sky>
         <a-entity >
-          <!--Estacionamento-->
+          <!--Inico da Sala-->
           <a-entity position="-3 0 -6" look-at="#cam">
             <a-image
               src="#marco"
@@ -367,22 +369,31 @@
           </a-entity>
 
           <!--UI NAV-->
-        <a-entity look-at="#cam" position="6 1.5 -4">
-        <!--Ponto para Apto 1801-->
+        <!--Ponto para Aptos--> 
+            <a-entity position="6 0.5 4.7" look-at="#cam">
+              <a-image
+                src="#point"
+                width="0.5"
+                height="0.5"
+                color="#FFF"
+                event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+                event-set__mouseleave="scale: 1 1 1; color:#fff"
+                proxy-event="event: click; to: #cam; as: fade"
+              ></a-image>
+            </a-entity>
 
-            <!--Ponto para Aptos 
-            <a-entity id="AptoText" position="0 0 0" scale="0.5 0.5 1"
-            text="value: Apartamentos; align: center; width:5; color:#000"></a-entity>
-            
-            <a-plane color="#EFEFEF" height="0.5" width="1" 
-            event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
-            event-set__mouseleave="_event: mouseleave; material.color: #EFEFEF"
-            event-set__click="_event: click; material.color: #B4B4B4"
-            event-set__position="_target:#AptoText1 ; _event: click; animation.property:position; animation.to:0 -0.375 0; animation.easing:easeInOutBack"
-            event-set__position2="_target:#AptoText2 ; _event: click; animation.property:position; animation.to:0 -0.63 0; animation.easing:easeInOutBack; animation.delay:50" 
-            event-set__position3="_target:#AptoText3 ; _event: click; animation.property:position; animation.to:0 -0.88 0; animation.easing:easeInOutBack; animation.delay:100" 
-            event-set__position4="_target:#AptoText4 ; _event: click; animation.property:position; animation.to:0 -1.13 0; animation.easing:easeInOutBack; animation.delay:150" 
-            ></a-plane>-->
+            <a-entity position="6 3 4.7" look-at="#cam">
+              <a-image
+                src="#infoBox"
+                width="2.5"
+                height="3.5"
+                opacity="0.5"
+              ></a-image>
+              <a-entity position="0 1.5 0.1" text="value: COMPUTER CENTER; align: center; width: 3; color:#000" ></a-entity>
+              <a-entity position="0 0.6 0.1" 
+              text="value: As tecnologias digitais estão presentes também na nossa sala de aula, o professor se constitui um mediador, criandoatividades pedagógicas que desenvolvem a imaginação de forma divertida, proporcionando o contato com outraslinguagens e formas, trabalhando com jogos, livros digitais, plataformas interativas e estimulando a autonomia.; 
+              align: center; width: 2.5; color:#000; wrapCount:25" ></a-entity>
+            </a-entity>
 
             <!--Lista de Aptos
             <a-entity id="AptoText1" position="0 0 -1" scale="0.5 0.5 1"
@@ -494,7 +505,7 @@
             event-set__mouseenter="_event: mouseenter; material.color: #ADADAD"
             event-set__mouseleave="_event: mouseleave; material.color: #999"
             event-set__click="_event: click; material.color: #B4B4B4"></a-entity>-->
-        </a-entity>
+        
 
         </a-entity>
       </a-entity>
@@ -673,7 +684,7 @@
 
       </a-entity>
 
-      <a-entity class="cena" id="cenaSala1Final" visible="true">
+      <a-entity class="cena" id="cenaSala1Final" visible="false">
         <a-sky
           src="#Sala1Final"
           radius="30"
