@@ -64,27 +64,42 @@
         <img id="point" src="assets\point.png" />
         <img id="infoBoxFast" src="assets\boxes\txt_01-min.png" />
         <img id="infoBoxCircle" src="assets\boxes\txt_02-min.png" />
-        <img id="infoBoxVoice" src="assets\boxes\txt_03-min.png" />
+        <img id="infoBoxVoice" src="assets\boxes\Txt_03-min.png" />
         <img id="infoBoxWord" src="assets\boxes\Txt_04-min.png" />
         <img id="infoBoxMural" src="assets\boxes\Txt_05-min.png" />
         <img id="infoBoxGuided" src="assets\boxes\Txt_06-min.png" />
         <img id="infoBoxPC" src="assets\boxes\Txt_07-min.png" />
         <img id="infoBoxHome" src="assets\boxes\Txt_08-min.png" />
         <img id="infoBoxLeitura" src="assets\boxes\Txt_09-min.png" />
-        <img id="EntradaCol" src="assets\Entrada.JPG" />
-        <img id="HallEntrada" src="assets\AreaEntrada.JPG" />
+
+        <img id="EntradaCol" src="assets\Entrada.jpg" />
+        <img id="HallEntrada" src="assets\AreaEntrada.jpg" />
         <img id="Parque1" src="assets\ParqueInicio.jpg" />
         <img id="Parque2" src="assets\ParqueFinal.jpg" />
-        <img id="Sala1Entrada" src="assets\Sala1_Entrada.JPG" />
-        <img id="Sala1" src="assets\Sala1_Meio2.JPG" />
-        <img id="Sala1Meio" src="assets\Sala1_Meio2.JPG" />
-        <img id="Sala1Final" src="assets\Sala1_Teatro.jpg" />
-        <img id="Sala2" src="assets\Sala2_Inicio.JPG" />
-        <img id="Sala2-Meio" src="assets\Sala2_Meio.JPG" />
-        <img id="Sala2-Final" src="assets\Sala2_Final.JPG" />
-        <img id="EscCampo" src="assets\Escola_Campo.JPG" />
-        <img id="QuadraCampo" src="assets\Quadra_Campo.JPG" />
-        <img id="Quadra2" src="assets\Quadra.JPG" />
+        <img id="Sala1Entrada" src="assets\Sala1_Entrada.jpg" />
+        <img id="Sala1" src="assets\Sala1_Meio2.jpg" />
+        <img id="Sala1Meio" src="assets\Sala1_Meio1.jpg" />
+        <img id="Sala1Teatro" src="assets\Sala1_Teatro.jpg" />
+        <img id="Sala1Musica" src="assets\Sala1_Musica.jpg" />
+        <img id="Sala1Moda" src="assets\Sala1_Moda.jpg" />
+        <img id="Sala1Leitura" src="assets\Sala1_Leitura.jpg" />
+        <img id="Sala2" src="assets\Sala2_Inicio.jpg" />
+        <img id="Sala2-Meio" src="assets\Sala2_Meio.jpg" />
+        <img id="Sala2-Final" src="assets\Sala2_Final.jpg" />
+        <img id="EscCampo" src="assets\Escola_Campo.jpg" />
+        <img id="QuadraCampo" src="assets\Quadra_Campo.jpg" />
+        <img id="Quadra2" src="assets\Quadra.jpg" />
+
+
+        <img id="infoBoxMath" src="assets\boxes\Txt_11-min.png" />
+        <img id="infoBoxComputer" src="assets\boxes\Txt_10-min.png" />
+        <img id="infoBoxCraft" src="assets\boxes\Txt_12-min.png" />
+        <img id="infoBoxMusic" src="assets\boxes\Txt_13-min.png" />
+        <img id="infoBoxPuppet" src="assets\boxes\Txt_14-min.png" />
+        <img id="infoBoxDress" src="assets\boxes\Txt_15-min.png" />
+        <img id="infoBoxReading" src="assets\boxes\Txt_16-min.png" />
+        <img id="infoBoxWater" src="assets\boxes\Txt_17-min.png" />
+        <img id="infoBoxCircle2" src="assets\boxes\Txt_18-min.png"/>
       </a-assets>
 
       
@@ -92,7 +107,7 @@
         <a-camera
           id="cam"
           camera="fov:  40; zoom:  0.6"
-          wasd-controls="enabled:false"
+          wasd-controls="enabled:true"
           look-controls
           cursor="rayOrigin: mouse"
           >
@@ -125,7 +140,7 @@
       
     </div>
       <!--Cena Entrada Portaria-->
-      <a-entity class="cena" id="cenaEntrada" visible="false" >
+      <a-entity class="cena" id="cenaEntrada" visible="true" >
 
         <a-sky
           src="#EntradaCol"
@@ -795,6 +810,32 @@
             ></a-image>
             
           </a-entity>
+
+          <!--Ponto dos Info--> 
+          <a-entity id="infoBox" position="4 0 0">
+            <a-entity position="0 0 0" look-at="#cam">
+              <a-image
+                src="#point"
+                width="0.5"
+                height="0.5"
+                color="#FFF"
+                event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+                event-set__mouseleave="scale: 1 1 1; color:#fff"
+                event-set__click1="_target: #TextBox10; _event:click; animation.property: material.opacity; animation.to: 1 "
+                ></a-image>
+              </a-entity>
+
+              <a-entity position="0 1.8 0" look-at="#cam">
+                <a-image
+                id="TextBox10"
+                  src="#infoBoxWater"
+                  width="1.5"
+                  height="1.5"
+                  opacity="0"
+                  event-set__clickBack1="_target: #TextBox10; _event:click; animation.property: material.opacity; animation.to: 0 "
+                ></a-image>
+              </a-entity>
+          </a-entity>
         
 
         </a-entity>
@@ -807,8 +848,8 @@
           rotation="0 0 0"
         ></a-sky>
         <a-entity >
-          <!--Elevador-->
-          <a-entity position="-3 0 -4" look-at="#cam">
+          <!--Inicio da Sala-->
+          <a-entity position="0 0 -4" look-at="#cam">
             <a-image
               src="#marco"
               width="0.5"
@@ -822,28 +863,279 @@
             
           </a-entity>
 
-          <!--Elevador-->
-          <a-entity position="-1.8 0.5 7" look-at="#cam">
+          <!--Teatro-->
+          <a-entity position="1 0.5 5" look-at="#cam">
             <a-image
               src="#marco"
               width="0.5"
               height="0.5"
               color="#FFF"
-              onclick="mudarCena('cenaSala1Final')"
+              onclick="mudarCena('cenaSala1Teatro')"
               event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
               event-set__mouseleave="scale: 1 1 1; color:#fff"
               proxy-event="event: click; to: #cam; as: fade"
             ></a-image>
             
           </a-entity>
-        
+
+          <!--Moda-->
+          <a-entity position="3 0.5 5" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Moda')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+
+          <!--Leitura-->
+          <a-entity position="-1 0.5 5" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Leitura')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+
+          <!--Musica-->
+          <a-entity position="4 0.5 2.5" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Musica')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBoxQuadro" position="5 0 -0.5">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.4"
+              height="0.4"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox11; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.6 0" look-at="#cam">
+              <a-image
+              id="TextBox11"
+                src="#infoBoxCircle2"
+                width="2"
+                height="2"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox11; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info PC--> 
+        <a-entity id="infoBoxComputer" position="-5 1 0">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox12; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox12"
+                src="#infoBoxComputer"
+                width="2"
+                height="2"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox12; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBoxCraft" position="-5 1 -3">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox13; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox13"
+                src="#infoBoxCraft"
+                width="2"
+                height="2"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox13; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBoxMath" position="-5 1 3">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox14; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox14"
+                src="#infoBoxMath"
+                width="2"
+                height="2"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox14; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
         </a-entity>
 
       </a-entity>
 
-      <a-entity class="cena" id="cenaSala1Final" visible="false">
+      <a-entity class="cena" id="cenaSala1Moda" visible="false">
         <a-sky
-          src="#Sala1Final"
+          src="#Sala1Moda"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Elevador-->
+          <a-entity position="-3 0.5 4" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+
+          <!--Ponto dos Info--> 
+          <a-entity id="infoBoxModa" position="4 1 -2">
+            <a-entity position="0 0 0" look-at="#cam">
+              <a-image
+                src="#point"
+                width="0.5"
+                height="0.5"
+                color="#FFF"
+                event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+                event-set__mouseleave="scale: 1 1 1; color:#fff"
+                event-set__click1="_target: #TextBox15; _event:click; animation.property: material.opacity; animation.to: 1 "
+                ></a-image>
+              </a-entity>
+
+              <a-entity position="0 -1.8 0" look-at="#cam">
+                <a-image
+                id="TextBox15"
+                  src="#infoBoxDress"
+                  width="2.5"
+                  height="2.5"
+                  opacity="0"
+                  event-set__clickBack1="_target: #TextBox15; _event:click; animation.property: material.opacity; animation.to: 0 "
+                ></a-image>
+              </a-entity>
+          </a-entity>
+        
+        </a-entity>
+        
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala1Musica" visible="false">
+        <a-sky
+          src="#Sala1Musica"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Elevador-->
+          <a-entity position="-1.7 0.5 2" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBox1" position="3 1 -4">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox16; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox16"
+                src="#infoBoxMusic"
+                width="2.5"
+                height="2.5"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox16; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
+        
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala1Teatro" visible="false">
+        <a-sky
+          src="#Sala1Teatro"
           radius="30"
           rotation="0 0 0"
         ></a-sky>
@@ -862,13 +1154,90 @@
             ></a-image>
             
           </a-entity>
+        </a-entity>
+
+        <!--Ponto dos Info--> 
+        <a-entity id="infoBoxTeatro" position="-5 0 0">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox17; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox17"
+                src="#infoBoxPuppet"
+                width="2.5"
+                height="2.5"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox17; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
+        
+      </a-entity>
+
+      <a-entity class="cena" id="cenaSala1Leitura" visible="false">
+        <a-sky
+          src="#Sala1Leitura"
+          radius="30"
+          rotation="0 0 0"
+        ></a-sky>
+        <a-entity >
+          <!--Elevador-->
+          <a-entity position="-5 0.5 -2.8" look-at="#cam">
+            <a-image
+              src="#marco"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              onclick="mudarCena('cenaSala1Meio')"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              proxy-event="event: click; to: #cam; as: fade"
+            ></a-image>
+            
+          </a-entity>
+
+          <!--Ponto dos Info--> 
+        <a-entity id="infoBox1" position="5 0 1">
+          <a-entity position="0 0 0" look-at="#cam">
+            <a-image
+              src="#point"
+              width="0.5"
+              height="0.5"
+              color="#FFF"
+              event-set__mouseenter="scale: 1.2 1.2 1; color:#c5c5c5"
+              event-set__mouseleave="scale: 1 1 1; color:#fff"
+              event-set__click1="_target: #TextBox18; _event:click; animation.property: material.opacity; animation.to: 1 "
+              ></a-image>
+            </a-entity>
+
+            <a-entity position="0 1.8 0" look-at="#cam">
+              <a-image
+              id="TextBox18"
+                src="#infoBoxReading"
+                width="2"
+                height="2"
+                opacity="0"
+                event-set__clickBack1="_target: #TextBox18; _event:click; animation.property: material.opacity; animation.to: 0 "
+              ></a-image>
+            </a-entity>
+        </a-entity>
         
         </a-entity>
         
       </a-entity>
 
       <!--Cena Campo da Escola-->
-      <a-entity class="cena" id="cenaEscoCampo" visible="true" >
+      <a-entity class="cena" id="cenaEscoCampo" visible="false" >
 
         <a-sky
           id="sky"
