@@ -126,9 +126,8 @@
         <option value="cenaHallEntrada|cenaEntrada|cenaParque|cenaSala2|cenaQuadra">Pátio de Entrada</option>
         <option value="cenaSala2|cenaHallEntrada|cenaSala2Meio">Sala 1</option>
         <option value="cenaSala1Entr|cenaParque|cenaSala1Meio">Sala 2</option>
-        <option value="cenaParque|cenaEscoCampo|cenaSala1Entr|cenaHallEntrada">Parque</option>
-        <option value="cenaEscoCampo|cenaQuadra|cenaParque">Campo</option>
-        <option value="cenaQuadra|cenaEscoCampo|cenaHallEntrada">Quadra</option>
+        <option value="cenaParque|cenaQuadra|cenaSala1Entr|cenaHallEntrada">Parque</option>
+        <option value="cenaQuadra|cenaHallEntrada|cenaParque">Quadra</option>
 
       </select>
 
@@ -176,14 +175,14 @@
       <a-entity position="-2 0.5 -2" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
         material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
         event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-        onclick="mudarCena('cenaParque|cenaEscoCampo|cenaSala1Entr|cenaHallEntrada')">
+        onclick="mudarCena('cenaParque|cenaQuadra|cenaSala1Entr|cenaHallEntrada')">
         <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
         <a-text text="width:  3;  value:  Parque; align: center " position="0 -0.2 0"></a-text>
       </a-entity>
     </a-entity>
 
     <!--Cena Parque -->
-    <a-entity class="cena" id="cenaParque|cenaEscoCampo|cenaSala1Entr|cenaHallEntrada" visible="false">
+    <a-entity class="cena" id="cenaParque|cenaQuadra|cenaSala1Entr|cenaHallEntrada" visible="false">
       <a-sky src="#Parque2" radius="50" rotation="0 170 0"></a-sky>
       <a-entity>
         <!--Ponto para Hall de entrada-->
@@ -199,9 +198,9 @@
         <a-entity position="-1 1 -4" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
           material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
           event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-          onclick="mudarCena('cenaEscoCampo|cenaQuadra|cenaParque')">
+          onclick="mudarCena('cenaQuadra|cenaHallEntrada|cenaParque')">
           <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
-          <a-text text="width:  3;  value:  Campo; align: center " position="0 -0.2 0"></a-text>
+          <a-text text="width:  3;  value:  Quadra; align: center " position="0 -0.2 0"></a-text>
         </a-entity>
 
         <!--Ponto para Sala 1-->
@@ -224,7 +223,7 @@
         <a-entity position="3 1 -2" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
         material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
         event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-        onclick="mudarCena('cenaParque|cenaEscoCampo|cenaSala1Entr|cenaHallEntrada')">
+        onclick="mudarCena('cenaParque|cenaQuadra|cenaSala1Entr|cenaHallEntrada')">
         <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
         <a-text text="width:  3;  value:  Sair da Sala; align: center " position="0 -0.2 0"></a-text>
       </a-entity>
@@ -767,32 +766,10 @@
 
     </a-entity>
 
-    <!--Cena Campo da Escola-->
-    <a-entity class="cena" id="cenaEscoCampo|cenaQuadra|cenaParque" visible="false">
-
-      <a-sky id="sky" src="#EscCampo" radius="50" rotation="0 15 0" cursor-listener material="opacity: 1"></a-sky>
-
-      <!--Ponto para Parque-->
-      <a-entity position="1 1 -4" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
-        material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
-        event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-        onclick="mudarCena('cenaParque|cenaEscoCampo|cenaSala1Entr|cenaHallEntrada')">
-        <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
-        <a-text text="width:  3;  value:  Parque; align: center " position="0 -0.2 0"></a-text>
-      </a-entity>
-
-      <!--Ponto para Quadra-->
-      <a-entity position="-4 1.6 -1" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
-        material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
-        event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-        onclick="mudarCena('cenaQuadra|cenaEscoCampo|cenaHallEntrada')">
-        <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
-        <a-text text="width:  3;  value:  Quadra; align: center " position="0 -0.2 0"></a-text>
-      </a-entity>
-    </a-entity>
+   
 
     <!--Cena Quadra 2-->
-    <a-entity class="cena" id="cenaQuadra|cenaEscoCampo|cenaHallEntrada" visible="false">
+    <a-entity class="cena" id="cenaQuadra|cenaHallEntrada|cenaParque" visible="false">
       <a-sky src="#Quadra2" radius="50" rotation="0 -90 0"></a-sky>
 
       <!--Ponto para Hall de Entrada-->
@@ -809,9 +786,9 @@
       <a-entity position="-0.5 1 4" look-at="#cam" geometry="primitive: plane; width: 0.5; height: 0.5"
         material="opacity:0" event-set__mouseenter="scale: 1.1 1.1 1; color:#c5c5c5"
         event-set__mouseleave="scale: 1 1 1; color:#fff" proxy-event="event: click; to: #cam; as: fade"
-        onclick="mudarCena('cenaEscoCampo|cenaQuadra|cenaParque')">
+        onclick="mudarCena('cenaParque|cenaQuadra|cenaSala1Entr|cenaHallEntrada')">
         <a-image src="#marco" class="button" width="0.35" height="0.4" color="#FFF" position="0 0.1 0.02"></a-image>
-        <a-text text="width:  3;  value:  Campo; align: center " position="0 -0.2 0"></a-text>
+        <a-text text="width:  3;  value:  Parque; align: center " position="0 -0.2 0"></a-text>
       </a-entity>
     </a-entity>
 
